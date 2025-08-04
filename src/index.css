@@ -1,0 +1,86 @@
+ @import "tailwindcss";
+ 
+ .body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f7f9fb;
+}
+
+.app {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.quiz-container {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  max-width: 600px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+}
+
+.category {
+  color: #888;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.question {
+  font-size: 20px;
+  margin: 12px 0;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.option {
+  background: #efefef;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.option:hover {
+  background: #dcdcdc;
+}
+
+.score-bar {
+  margin-top: 20px;
+}
+
+.score-text {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.bar-wrapper {
+  height: 10px;
+  background: #ccc;
+  border-radius: 20px;
+  display: flex;
+  overflow: hidden;
+}
+
+.bar {
+  height: 100%;
+}
+
+.bar.red {
+  background: #f44336;
+}
+
+.bar.yellow {
+  background: #ffeb3b;
+}
+
+.bar.green {
+  background: #4caf50;
+}

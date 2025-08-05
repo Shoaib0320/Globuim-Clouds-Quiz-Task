@@ -20,7 +20,7 @@ const App = () => {
   const [selectedOption, setSelectedOption] = useState(null);
   const [isCorrect, setIsCorrect] = useState(false);
   const [showNext, setShowNext] = useState(false);
-  const [timer, setTimer] = useState(5);
+  const [timer, setTimer] = useState(30);
   const [isFinished, setIsFinished] = useState(false);
 
   const currentQuestion = shuffledQuestions[currentIndex];
@@ -37,7 +37,7 @@ const App = () => {
       const allOptions = [...currentQuestion.incorrect_answers, currentQuestion.correct_answer];
       const shuffled = shuffleArray(allOptions);
       setShuffledOptions(shuffled);
-      setTimer(5);
+      setTimer(30);
     }
   }, [currentIndex, isFinished, currentQuestion]);
 
@@ -73,7 +73,7 @@ const App = () => {
       setCurrentIndex((i) => i + 1);
       setShowNext(false);
       setSelectedOption(null);
-      setTimer(5);
+      setTimer(30);
     } else {
       setIsFinished(true);
     }
@@ -90,7 +90,7 @@ const App = () => {
     setIsCorrect(false);
     setShowNext(false);
     setIsFinished(false);
-    setTimer(5);
+    setTimer(30);
   };
 
   const total = shuffledQuestions.length;

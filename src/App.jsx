@@ -16,8 +16,6 @@ const App = () => {
   const [timer, setTimer] = useState(60);
   const [isFinished, setIsFinished] = useState(false);
 
-
-  
   const currentQuestion = questions[currentIndex];
 
   useEffect(() => {
@@ -29,12 +27,24 @@ const App = () => {
     }
   }, [currentIndex, isFinished]);
 
+  // useEffect(() => {
+  //   if (showNext || isFinished) return;
+  //   if (timer === 0) {
+  //     handleAnswer(null);
+  //     return;
+  //   }
+  //   const interval = setInterval(() => setTimer((t) => t - 1), 1000);
+  //   return () => clearInterval(interval);
+  // }, [timer, showNext, isFinished]);
+
   useEffect(() => {
     if (showNext || isFinished) return;
+
     if (timer === 0) {
       handleAnswer(null);
       return;
     }
+
     const interval = setInterval(() => setTimer((t) => t - 1), 1000);
     return () => clearInterval(interval);
   }, [timer, showNext, isFinished]);
@@ -43,12 +53,12 @@ const App = () => {
     const correct = decodeURIComponent(currentQuestion.correct_answer);
     const selected = option ? decodeURIComponent(option) : '';
     const answerIsCorrect = selected === correct;
-
+  
     if (answerIsCorrect) setCorrectCount((c) => c + 1);
     setSelectedOption(selected);
     setIsCorrect(answerIsCorrect);
     setAttempts((a) => a + 1);
-    setShowNext(true);
+    setShowNext(true); // Always allow next button to appear
   };
 
   const handleNext = () => {
@@ -56,10 +66,12 @@ const App = () => {
       setCurrentIndex((i) => i + 1);
       setShowNext(false);
       setSelectedOption(null);
+      setTimer(60); // 🔁 Reset timer when moving to next question
     } else {
       setIsFinished(true);
     }
   };
+  
 
   const handleRestart = () => {
     setCurrentIndex(0);

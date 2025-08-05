@@ -16,6 +16,8 @@ const App = () => {
   const [timer, setTimer] = useState(60);
   const [isFinished, setIsFinished] = useState(false);
 
+
+  
   const currentQuestion = questions[currentIndex];
 
   useEffect(() => {
